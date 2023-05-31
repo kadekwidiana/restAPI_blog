@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $dataPost = Post::paginate(5);
+        $dataPost = Post::latest()->paginate(10);
         return response()->json($dataPost);
     }
 
@@ -46,7 +46,7 @@ class PostController extends Controller
 
         try {
             if ($request->file('image')) {
-                $data['image'] = $request->file('image')->store('post-image');
+                $validateData['image'] = $request->file('image')->store('post-image');
             }
 
             $post = Post::create($validateData);
@@ -65,6 +65,7 @@ class PostController extends Controller
             }
         } catch (\Exception $e) {
             return response()->json([
+                'success' => false,
                 'message' => 'Err',
                 'errors' => $e->getMessage()
             ]);
