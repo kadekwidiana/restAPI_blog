@@ -41,6 +41,7 @@ class PostController extends Controller
             'title' => 'required',
             'category' => 'required',
             'image' => 'required',
+            'rating' => 'required',
             'description' => 'required'
         ]);
 
@@ -118,6 +119,7 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required',
             'category' => 'required',
+            'rating' => 'required',
             'description' => 'required',
         ]);
 

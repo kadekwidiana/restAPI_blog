@@ -12,6 +12,12 @@ class Post extends Model
         'title',
         'category',
         'image',
+        'rating',
         'description',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
