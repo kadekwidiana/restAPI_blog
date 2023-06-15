@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Auth\LoginController;
+use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\PostController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Illuminate\Http\Request;
@@ -24,6 +25,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('login', [LoginController::class, 'login']);
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
+    // category
+    Route::apiResource('categories', CategoryController::class);
+    // post
     Route::apiResource('posts', PostController::class);
     Route::post('/posts/{id}', [PostController::class, 'update']);
 });

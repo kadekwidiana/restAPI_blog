@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('category');
             $table->string('image');
+            $table->string('location');
+            $table->string('jam_buka');
             $table->string('rating');
             $table->string('description');
             $table->timestamps();

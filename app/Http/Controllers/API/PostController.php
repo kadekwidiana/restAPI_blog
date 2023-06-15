@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $dataPost = Post::latest()->paginate(10);
+        $dataPost = Post::latest()->paginate(15);
         return response()->json($dataPost);
     }
 
@@ -41,6 +41,8 @@ class PostController extends Controller
             'title' => 'required',
             'category' => 'required',
             'image' => 'required',
+            'location' => 'required',
+            'jam_buka' => 'required',
             'rating' => 'required',
             'description' => 'required'
         ]);
@@ -119,6 +121,8 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required',
             'category' => 'required',
+            'location' => 'required',
+            'jam_buka' => 'required',
             'rating' => 'required',
             'description' => 'required',
         ]);
